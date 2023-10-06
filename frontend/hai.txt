@@ -1,0 +1,10 @@
+ const navigate = useNavigate();
+  function handleLogin() {
+    navigate("/login");
+  }
+  function handleCreateAccount() {
+    navigate("/createaccount");
+  }
+  import { useNavigate } from "react-router-dom";
+    onClick={(e) => handleLogin()}
+     onClick={(e) => handleCreateAccount()}
