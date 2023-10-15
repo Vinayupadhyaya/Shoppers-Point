@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'backapp',
     'corsheaders',
 ]
 
@@ -52,6 +53,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
+# REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES':
+# [
+#  'rest_framework.permission.AllowAny']}
 
 ROOT_URLCONF = 'HTbackend.urls'
 
@@ -87,10 +91,10 @@ DATABASES = {
         'PORT': '3306'
     }
 }
-CORS_ALLOWED_ORIGINS = [
-    'http://localho.st:8000',
-]
-
+# CORS_ALLOWED_ORIGINS = [
+# 'http://localho.st:8000',
+# ]
+CORS_ORIGIN_ALLOW_ALL = True
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
