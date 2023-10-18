@@ -1,30 +1,45 @@
-import React from "react";
+import axios from "axios";
+import { useState } from "react";
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // Create the submit method.
+
+  async function handleSubmit(e) {
+    //e.preventDefualt();
+    const res = await axios.get("http://127.0.0.1:8000/");
+    console.log(res.data);
+  }
+
   return (
     <div>
-      <form action="">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+      <form action={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
           <input
             type="password"
-            class="form-control"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

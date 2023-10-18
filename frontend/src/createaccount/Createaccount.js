@@ -1,74 +1,85 @@
 import React from "react";
-// import axios from "axios";
+import axios from "axios";
 import { useState } from "react";
 function Createaccount() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [emailid, setEmailid] = useState("");
   const [password, setPassword] = useState("");
-  function saveUser() {
-    console.warn(name, email, password);
-    let data = { name, email, password };
-    fetch("http://127.0.0.1:8000/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn("resp", resp);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    let data = { name, emailid, password };
+    console.log({ data });
+    await axios
+      .post("http://localhost:8000/", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
       });
-    });
   }
+
   return (
     <div>
-      <form action="">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Name
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => {
-              setName(e.target.vlaue);
+              setName(e.target.value);
             }}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="name"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            value={email}
+            value={emailid}
             onChange={(e) => {
-              setEmail(e.target.vlaue);
+              setEmailid(e.target.value);
             }}
-            class="form-control"
-            id="exampleFormControlInput1"
+            className="form-control"
+            id="exampleFormControlInput2"
             placeholder="name@example.com"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
           <input
             type="password"
             value={password}
             onChange={(e) => {
-              setPassword(e.target.vlaue);
+              setPassword(e.target.value);
             }}
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" onClick={saveUser} class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Create
         </button>
       </form>

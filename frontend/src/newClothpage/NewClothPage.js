@@ -5,9 +5,9 @@ import Male from "./male/Male.js";
 function NewClothpage() {
   return (
     <div>
-      <div class="front">
+      <div className="front">
         <Female />
-        <div class="newCloth">
+        <div className="newCloth">
           <Male />
         </div>
       </div>

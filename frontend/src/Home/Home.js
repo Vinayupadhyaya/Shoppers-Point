@@ -6,9 +6,9 @@ import "./Home.css";
 function Home() {
   return (
     <div>
-      <div class="front">
+      <div className="front">
         <Stitch />
-        <div class="newCloth"></div>
+        <div className="newCloth"></div>
         <NewCloth />
       </div>
     </div>
