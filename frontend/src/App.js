@@ -5,12 +5,11 @@ import Home from "./Home/Home.js";
 import Login from "./login/Login.js";
 import Createaccount from "./createaccount/Createaccount.js";
 import Navbar from "./navbar/Navbar.js";
-import { useState } from "react";
+// import { useState } from "react";
 function App() {
-  const [login, setLogin] = useState(false);
   return (
     <div>
-      <Navbar login={login} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newcloth" element={<NewClothPage />} />
