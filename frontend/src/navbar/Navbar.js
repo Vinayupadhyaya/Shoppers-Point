@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-function Navbar({ login }) {
+function Navbar() {
   const navigate = useNavigate();
   function handleLogin() {
     navigate("/login");
@@ -39,17 +39,13 @@ function Navbar({ login }) {
                 </li>
               </ul>
               <div className="d-flex">
-                {login === true ? (
-                  " "
-                ) : (
-                  <button
-                    onClick={(e) => handleLogin()}
-                    type="button"
-                    className="btn btn-dark"
-                  >
-                    Login
-                  </button>
-                )}
+                <button
+                  onClick={(e) => handleLogin()}
+                  type="button"
+                  className="btn btn-dark"
+                >
+                  Login
+                </button>
 
                 <button
                   onClick={(e) => handleCreateAccount()}
@@ -63,7 +59,6 @@ function Navbar({ login }) {
           </div>
         </nav>
       </div>
-      {login === true ? <h2>welcome to the home page</h2> : " "}
     </div>
   );
 }
