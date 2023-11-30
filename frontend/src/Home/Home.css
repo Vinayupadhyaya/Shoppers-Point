@@ -1,9 +1,6 @@
 .front {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   margin-top: 150px;
-}
-.newCloth {
   padding-left: 80px;
 }

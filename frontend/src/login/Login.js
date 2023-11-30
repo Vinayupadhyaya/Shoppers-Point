@@ -1,19 +1,51 @@
 import axios from "axios";
+import React from "react";
 import { useState } from "react";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // Create the submit method.
 
-  async function handleSubmit(e) {
-    //e.preventDefualt();
-    const res = await axios.get("http://127.0.0.1:8000/");
-    console.log(res.data);
+  // here is the submit funtion for authenticate login
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    let data = { email, password };
+    console.log({ data });
+
+    // axios for authentication
+    let res = await axios
+      .get(
+        "http://127.0.0.1:8000/",
+        {},
+        {
+          auth: {
+            emailid: data.email,
+            password: data.password,
+          },
+        }
+      )
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+      });
+
+    // on successful authentication the status is 200
+
+    if (res.status === 200) {
+      console.log("Authenticateds");
+    }
   }
-
+  // this it the return funtion
   return (
     <div>
-      <form action={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address

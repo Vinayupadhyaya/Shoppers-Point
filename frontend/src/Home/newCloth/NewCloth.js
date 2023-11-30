@@ -1,10 +1,5 @@
 import newcloth from "./newcloth.jpg";
-import { useNavigate } from "react-router-dom";
 function NewCloth() {
-  const navigate = useNavigate();
-  function handleClick() {
-    navigate("/newcloth");
-  }
   return (
     <div>
       <div className="card" style={{ width: "18rem" }}>
@@ -15,17 +10,13 @@ function NewCloth() {
           style={{ height: "200px" }}
         />
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
+          <h5 className="card-title">Female Clothes Stitching</h5>
           <p className="card-text">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <button
-            onClick={(e) => handleClick()}
-            type="button"
-            className="btn btn-primary"
-          >
-            NewCloth
+          <button type="button" className="btn btn-primary">
+            Stitch Now
           </button>
         </div>
       </div>
