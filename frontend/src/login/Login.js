@@ -6,14 +6,21 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+<<<<<<< HEAD
   // here is the submit funtion for authenticate login
 
+=======
+>>>>>>> cf6aa47f740247d65fc80cdaf26db0aa2a5a5b91
   async function handleSubmit(event) {
     event.preventDefault();
     let data = { email, password };
     console.log({ data });
+<<<<<<< HEAD
 
     // axios for authentication
+=======
+    // const basicAuth = "Basic " + btoa(data.email + ":" + data.password);
+>>>>>>> cf6aa47f740247d65fc80cdaf26db0aa2a5a5b91
     let res = await axios
       .get(
         "http://127.0.0.1:8000/",
@@ -36,16 +43,23 @@ function Login() {
           console.log("Error", error.message);
         }
       });
+<<<<<<< HEAD
 
     // on successful authentication the status is 200
 
+=======
+>>>>>>> cf6aa47f740247d65fc80cdaf26db0aa2a5a5b91
     if (res.status === 200) {
       console.log("Authenticateds");
     }
   }
   // this it the return funtion
   return (
+<<<<<<< HEAD
     <div className="login">
+=======
+    <div>
+>>>>>>> cf6aa47f740247d65fc80cdaf26db0aa2a5a5b91
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
