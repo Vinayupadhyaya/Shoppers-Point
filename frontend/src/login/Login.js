@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import "./login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +45,7 @@ function Login() {
   }
   // this it the return funtion
   return (
-    <div>
+    <div className="login">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -52,6 +53,7 @@ function Login() {
           </label>
           <input
             type="email"
+            style={{ width: "400px" }}
             className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

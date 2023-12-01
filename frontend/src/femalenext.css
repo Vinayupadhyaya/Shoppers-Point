@@ -1,0 +1,7 @@
+.box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 500px;
+  gap: 50px;
+  list-style: none;
+}
