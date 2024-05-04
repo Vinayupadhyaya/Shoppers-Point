@@ -1,4 +1,5 @@
 import React from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Navbar() {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ function Navbar() {
   function handleCreateAccount() {
     navigate("/createaccount");
   }
+
   return (
     <div>
       <div className="App">
@@ -34,7 +36,17 @@ function Navbar() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="/">
-                    ContactUs
+                    Male
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link " aria-current="page" href="/">
+                    Female
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/">
+                    Link
                   </a>
                 </li>
               </ul>
@@ -49,11 +61,11 @@ function Navbar() {
                   Search
                 </button>
               </form>
-              <div className="d-flex">
+              <div className="d-flex ">
                 <button
                   onClick={(e) => handleLogin()}
                   type="button"
-                  className="btn btn-dark"
+                  className="btn btn-dark "
                 >
                   Login
                 </button>
@@ -61,7 +73,7 @@ function Navbar() {
                 <button
                   onClick={(e) => handleCreateAccount()}
                   type="button"
-                  className="btn btn-dark"
+                  className="btn btn-dark "
                 >
                   CreateAccount
                 </button>

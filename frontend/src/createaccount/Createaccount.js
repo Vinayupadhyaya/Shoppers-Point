@@ -7,7 +7,7 @@ function Createaccount() {
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
+    alert("Account Successfully created");
     let data = { name, emailid, password };
     console.log({ data });
     await axios

@@ -7,7 +7,6 @@ function Login() {
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
     let data = { email, password };
     console.log({ data });
 

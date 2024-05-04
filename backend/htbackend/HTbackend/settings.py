@@ -130,7 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
+SITE_URL = 'http://localhost:3000'
+STRIPE_SECRET_KEY = 'sk_test_51PCg6ySGW8vATneRv5UjKDKWDGE8HljMpmDAITxXR8Fl51lKhKWhb5aM9QFqJWghhTpwzqirGN8ILJOSB9kIPjA000INupTn9E'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

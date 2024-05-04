@@ -6,3 +6,5 @@ class ReactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Createaccount
         fields = ['name', 'emailid', 'password']
+
+
