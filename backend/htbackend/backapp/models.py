@@ -13,3 +13,4 @@ class Createaccount(models.Model):
                                       MinLengthValidator(8 , 'the minimum character needed for the password')
                                  ])
 
+     

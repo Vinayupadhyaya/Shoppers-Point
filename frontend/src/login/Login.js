@@ -2,15 +2,17 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import "./login.css";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
+    event.preventDefault();
     let data = { email, password };
     console.log({ data });
 
-    let res = await axios
+    const res = await axios
       .get(
         "http://127.0.0.1:8000/",
         {},
@@ -34,7 +36,9 @@ function Login() {
       });
 
     if (res.status === 200) {
-      console.log("Authenticateds");
+      console.log("Authenticated");
+    } else {
+      console.log("remain  unsuccessful");
     }
   }
   // this it the return funtion
@@ -74,4 +78,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;

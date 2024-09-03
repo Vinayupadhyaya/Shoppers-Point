@@ -7,7 +7,7 @@ export default function MyApp() {
     getData();
   }, []);
   async function getData() {
-    fetch("https://fakestoreapi.com/products")
+    await fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
         setData(json);

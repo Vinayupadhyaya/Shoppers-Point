@@ -1,11 +1,7 @@
 import React from "react";
 import female from "./female.jpg";
-import { useNavigate } from "react-router-dom";
+
 function Female() {
-  const navigate = useNavigate();
-  function handleCreateAccount() {
-    navigate("/femalenext");
-  }
   return (
     <div>
       <div className="card" style={{ width: "18rem" }}>
@@ -21,9 +17,9 @@ function Female() {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <button onClick={handleCreateAccount} className="btn btn-primary">
+          <a href="/femalenext" className="btn btn-primary">
             Order
-          </button>
+          </a>
         </div>
       </div>
     </div>

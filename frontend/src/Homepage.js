@@ -20,7 +20,7 @@ export default function Homepage() {
     <section>
       <div className="product">
         <img
-          src="https://i.imgur.com/EHyR2nP.png"
+          src="https://5.imimg.com/data5/XS/DT/MY-3747740/mens-shirts.jpg"
           alt="The cover of Stubborn Attachments"
         />
         <div className="description">
