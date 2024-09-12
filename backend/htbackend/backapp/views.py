@@ -30,6 +30,9 @@ class ReactView (APIView):
 # This is your test secret API key.
 stripe.api_key = settings.STRIPE_SECRET_KEY;
 class StripeCheckoutView(APIView):
+    def get(self, request):
+        return Response({"error": "GET method not allowed. Use POST."}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
     def post(self , request):
         try:
             checkout_session = stripe.checkout.Session.create(
