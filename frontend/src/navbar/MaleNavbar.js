@@ -1,4 +1,3 @@
-import React from "react";
 import "./MaleNavbar.css";
 function MaleNavbar() {
   const topwear = [

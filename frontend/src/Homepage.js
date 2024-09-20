@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { API_URL } from "./config/index.js";
+import { useLocation } from "react-router-dom";
 export default function Homepage() {
+  const location = useLocation();
+  const data = location.state;
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -18,21 +21,19 @@ export default function Homepage() {
 
   return (
     <section>
-      <div className="product">
-        <img
-          src="https://5.imimg.com/data5/XS/DT/MY-3747740/mens-shirts.jpg"
-          alt="The cover of Stubborn Attachments"
-        />
+      <div className="product" key={data.key}>
+        <img src={data.image} alt="The cover of Stubborn Attachments" />
         <div className="description">
           <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>
+          <p>{data.description}</p>
+          <h5>{data.price}</h5>
         </div>
       </div>
       <form
         action={`${API_URL}api/stripe/create-checkout-session`}
         method="POST"
       >
-        <button type="submit">Checkout</button>
+        <button type="submit">Buy</button>
       </form>
     </section>
   );

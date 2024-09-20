@@ -9,5 +9,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ReactView.as_view(), name="anything"),
     path('api/stripe/create-checkout-session',StripeCheckoutView.as_view(),name="payment")
-    
 ]
