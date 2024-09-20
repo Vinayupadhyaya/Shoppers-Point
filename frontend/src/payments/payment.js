@@ -1,9 +1,15 @@
 import { useNavigate } from "react-router-dom";
-
 export default function Payment(props) {
   const navigate = useNavigate();
+  const data = {
+    key: props.key,
+    image: props.image,
+    title: props.title,
+    description: props.description,
+    price: props.price,
+  };
   function handleClick() {
-    navigate("/shop");
+    navigate("/homepage", { state: data });
   }
   return (
     <>
