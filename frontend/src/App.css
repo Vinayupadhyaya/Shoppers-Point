@@ -1,0 +1,37 @@
+/* App.css */
+html,
+body {
+  height: 100%; /* Ensure html and body cover the full height */
+  margin: 0; /* Remove default margin */
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1517267632572-3e8e1b77e845?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2Mzg1OTk5MzI&ixlib=rb-1.2.1&q=80&w=1080"); /* Unsplash background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+.position-relative {
+  position: relative; /* Ensure the overlay and content are positioned correctly */
+  min-height: 100vh; /* Make sure the container covers at least the full viewport height */
+}
+
+.container {
+  position: relative; /* Ensure absolute elements are positioned correctly */
+  z-index: 1; /* Ensure the content appears above the background */
+}
+
+.overlay {
+  position: absolute; /* Position overlay to fill the entire container */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Dark overlay for better text contrast */
+  z-index: 0; /* Ensure the overlay is behind the content */
+}

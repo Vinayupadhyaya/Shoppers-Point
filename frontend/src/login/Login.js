@@ -1,9 +1,10 @@
 import axios from "axios";
-import React from "react";
 import { useState } from "react";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+export default function Login({ dologin }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,14 +35,11 @@ function Login() {
           console.log("Error", error.message);
         }
       });
-
-    if (res.status === 200) {
-      console.log("Authenticated");
-    } else {
-      console.log("remain  unsuccessful");
-    }
+    console.log(res);
+    dologin(res.status === 200);
+    navigate("/");
   }
-  // this it the return funtion
+
   return (
     <div className="login">
       <form onSubmit={handleSubmit}>
@@ -78,5 +76,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

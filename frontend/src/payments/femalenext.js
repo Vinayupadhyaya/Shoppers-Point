@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Payment from "./payment.js";
 import "./femalenext.css";
 export default function MyApp() {
-  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     getData();
   }, []);
@@ -10,14 +10,16 @@ export default function MyApp() {
     await fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
         console.log(json);
+        setFilteredData(
+          json.filter((item) => item.category === "women's clothing")
+        );
       });
   }
 
   return (
     <div className="box">
-      {data.map((person) => (
+      {filteredData.map((person) => (
         <Payment
           key={person.id}
           image={person.image}

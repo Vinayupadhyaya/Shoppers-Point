@@ -1,9 +1,9 @@
 import React from "react";
 // import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
 import MaleNavbar from "./MaleNavbar";
-function LoggedIn(props) {
+function LoggedIn() {
   const navigate = useNavigate();
   function handleLogin() {
     navigate("/login");
@@ -11,32 +11,28 @@ function LoggedIn(props) {
   function handleCreateAccount() {
     navigate("/createaccount");
   }
-  if (props.log) {
-    return null;
-  } else {
-    return (
-      <>
-        <button
-          onClick={(e) => handleLogin()}
-          type="button"
-          className="btn btn-dark "
-        >
-          Login
-        </button>
+  return (
+    <>
+      <button
+        onClick={(e) => handleLogin()}
+        type="button"
+        className="btn btn-dark "
+      >
+        Login
+      </button>
 
-        <button
-          onClick={(e) => handleCreateAccount()}
-          type="button"
-          className="btn btn-dark "
-        >
-          CreateAccount
-        </button>
-      </>
-    );
-  }
+      <button
+        onClick={(e) => handleCreateAccount()}
+        type="button"
+        className="btn btn-dark "
+      >
+        CreateAccount
+      </button>
+    </>
+  );
 }
-function Navbar() {
-  const [log, setLog] = useState(false);
+
+function Navbar({ showlogin }) {
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -79,7 +75,7 @@ function Navbar() {
               <button class="btn btn-outline-success" type="submit">
                 Search
               </button>
-              <LoggedIn log={log} />
+              {showlogin ? "" : <LoggedIn />}
             </form>
           </div>
         </div>
